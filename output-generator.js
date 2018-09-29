@@ -1,9 +1,18 @@
-const generateNumberString = (numbers) => {
-    if (!numbers instanceof Array) {
-        throw TypeError("Number must be an array");
+const generator = function(numbers) {
+
+    this.numbers = numbers;
+
+    this.generateNumberString = () => {
+        // 'this' points to the context of the generator function here
+
+        if (!this.numbers instanceof Array) {
+            throw TypeError("Number must be an array");
+        }
+    
+        return this.numbers.join("");
     }
 
-    return numbers.join("");
+    return this;
 }
 
-module.exports = generateNumberString;
+module.exports = generator;

@@ -1,6 +1,6 @@
 const input = require('./input.json');
-const generateNumberString = require('./output-generator')
+const generator = require('./output-generator')(input.numbers);
 
-let number = generateNumberString(input.numbers);
+let number = generator.generateNumberString();
 
 console.log(number);
